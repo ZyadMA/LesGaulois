@@ -27,8 +27,33 @@ public class Druide {
     
     public void preparerPotion() {
     	Random random = new Random();
+    	int random1 = random.nextInt(effetPotionMax);
+    	while (random1 < effetPotionMin || random1 > effetPotionMax) {
+    		random1 = random.nextInt(effetPotionMax);
+    	}
+    	if (random1 > 7){
+    		System.out.println("J'ai préparé une super potion de force " + random1);
+    	}else {
+    		System.out.println("Je n'ai pas trouvé tous les ingrédients, ma potion "
+    				+ "est seulement de force "+ random1);
+    	}
     }
+    public void booster(Gaulois gaulois) {
+    	if (gaulois.getNom().equals("Obelix")) {
+    		System.out.println("Non , Obelix!.. , Tu n'auras pas de potion magique!");
+    	}else {
+    		gaulois.boirePotion(forcePotion);
+    	}
+    }
+    
+    public static void main(String[] args) {
+		Druide panoramix = new Druide("Panoramix",5,10);
+		panoramix.preparerPotion();
+		
+	}
 }
+
+
 
 
 
